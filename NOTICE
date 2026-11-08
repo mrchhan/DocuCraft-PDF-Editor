@@ -1,0 +1,14 @@
+DocuCraft
+Copyright (C) 2026 Hassan Malik (Shadow Creative Studio)
+
+This program is free software: you can redistribute it and/or modify it under the terms of the
+GNU Affero General Public License as published by the Free Software Foundation, either version 3 of
+the License, or (at your option) any later version. It is distributed WITHOUT ANY WARRANTY. See the
+LICENSE file for the full text.
+
+DocuCraft uses PyMuPDF (AGPL-3.0 / commercial) - this is why DocuCraft itself is AGPL-3.0-or-later.
+See docs/THIRD_PARTY_LICENSES.md for every bundled component.
+
+Branding: the "Shadow" / "Shadow Creative Studio" name, logo and artwork (assets/branding/shadow, core/branding.py)
+are the property of Hassan Malik and are NOT licensed under the AGPL. They may not be used to imply endorsement of
+a modified version.

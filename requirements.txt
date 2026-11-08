@@ -1,0 +1,8 @@
+# Runtime dependencies (Python 3.11 - 3.13). PyMuPDF is AGPL-3.0, which is why DocuCraft is AGPL-3.0-or-later.
+PySide6>=6.6,<7
+pymupdf>=1.26,<1.28
+pdf2docx>=0.5.8,<0.6
+python-docx>=1.1,<2
+Pillow>=10.3
+reportlab>=4.0
+pytesseract>=0.3.10

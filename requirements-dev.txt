@@ -1,0 +1,4 @@
+-r requirements.txt
+pytest>=8
+pyinstaller>=6.6
+pypdf>=4          # used by one test to cross-check redaction with a second PDF engine
