@@ -1,4 +1,4 @@
-# LinkedIn announcement (replace [REPO LINK] before posting)
+# LinkedIn announcement (ready to post)
 
 I just open-sourced **DocuCraft** — a free desktop app to read, annotate, secure and convert PDFs, including PDF → Word.
 
@@ -15,12 +15,13 @@ What it does today (v0.1 preview):
 
 What I want to be upfront about:
 • PDF → Word is never 100% perfect — complex layouts may need touching up
-• Windows installer is built by CI and still being tested on clean machines
+• Windows download is a portable zip (unzip and run), not yet code-signed, so SmartScreen may warn. It is a pre-release while I test it on more PCs
 • It's AGPL-3.0 (driven by the PyMuPDF engine)
 
 Built with Python, PySide6 and PyMuPDF, with an automated test suite and a self-testing packaged build.
 
-Code, screenshots and docs: [REPO LINK]
+Code, screenshots and docs: https://github.com/mrchhan/DocuCraft-PDF-Editor
+Windows download (v0.1.3 pre-release): https://github.com/mrchhan/DocuCraft-PDF-Editor/releases/tag/v0.1.3
 I'd love feedback — what would make this your daily PDF tool? Bug reports and ideas are very welcome.
 
 #OpenSource #Python #PDF #Privacy #Productivity #DesktopApps #PySide6
@@ -38,8 +39,8 @@ I'd love feedback — what would make this your daily PDF tool? Bug reports and 
 
 **Steps**
 1. Repo link in this project is already set to `https://github.com/mrchhan/DocuCraft-PDF-Editor`; check it opens.
-2. Build the installer on Windows (`python scripts\build_windows.py --skip-tests --installer`) and install it on a clean PC yourself.
-3. Create the repo and push it, add the release (see `marketing/GITHUB_PUBLISHING.md`), then replace `[REPO LINK]` above.
+2. Done: repo and v0.1.3 pre-release are published with the portable zip. Test the zip on one other PC if you can.
+3. Links in the post above are final.
 4. Post the text with the video attached. Put the link in the first comment if you want better reach.
 5. Reply to every comment in the first hour.
 
