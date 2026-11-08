@@ -51,7 +51,7 @@ A free, offline desktop app to **read, annotate, edit, secure and convert PDFs**
 More detail: [docs/USER_GUIDE.md](docs/USER_GUIDE.md).
 
 ## Install
-**Windows 10/11:** download the portable zip from the [Releases](https://github.com/your-username/DocuCraft-PDF-Editor/releases) page *(once a release has been published)*, unzip it (*Extract All*) and run `DocuCraft.exe`. Windows may show a SmartScreen warning because the app is not code-signed: choose *More info → Run anyway*. **From source (any OS):** see [docs/INSTALLATION.md](docs/INSTALLATION.md).
+**Windows 10/11:** download the portable zip from the [Releases](https://github.com/mrchhan/DocuCraft-PDF-Editor/releases) page *(once a release has been published)*, unzip it (*Extract All*) and run `DocuCraft.exe`. Windows may show a SmartScreen warning because the app is not code-signed: choose *More info → Run anyway*. **From source (any OS):** see [docs/INSTALLATION.md](docs/INSTALLATION.md).
 
 ```bash
 python -m venv .venv && . .venv/bin/activate     # Windows: .venv\Scripts\activate

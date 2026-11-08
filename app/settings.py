@@ -9,7 +9,7 @@ APP_VERSION = "0.1.3"
 APP_NAME = "DocuCraft"
 TAGLINE = "Your Documents. Your Control."
 DEVELOPER = "Hassan Malik (Shadow Creative Studio)"
-REPO_URL = "https://github.com/your-username/DocuCraft-PDF-Editor"      # replace before publishing
+REPO_URL = "https://github.com/mrchhan/DocuCraft-PDF-Editor"      # replace before publishing
 LICENSE_NAME = "AGPL-3.0-or-later"
 
 DEFAULTS: dict = {

@@ -37,7 +37,7 @@ I'd love feedback — what would make this your daily PDF tool? Bug reports and 
 - `github-social-preview.png`: upload under GitHub *Settings → Social preview*.
 
 **Steps**
-1. Replace `your-username` in `app/settings.py`, `README.md`, `docs/INSTALLATION.md` and `docs/DEVELOPMENT.md` with your GitHub name.
+1. Repo link in this project is already set to `https://github.com/mrchhan/DocuCraft-PDF-Editor`; check it opens.
 2. Build the installer on Windows (`python scripts\build_windows.py --skip-tests --installer`) and install it on a clean PC yourself.
 3. Create the repo and push it, add the release (see `marketing/GITHUB_PUBLISHING.md`), then replace `[REPO LINK]` above.
 4. Post the text with the video attached. Put the link in the first comment if you want better reach.

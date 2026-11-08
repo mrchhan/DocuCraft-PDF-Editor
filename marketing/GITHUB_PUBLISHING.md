@@ -1,7 +1,7 @@
 # Publishing DocuCraft on GitHub
 
 1. **Create the repository** named `DocuCraft-PDF-Editor` (public, no template files; the repo already has a README, LICENSE and .gitignore).
-2. **Replace the placeholder** `your-username` everywhere (see `marketing/linkedin_post.md`, step 1).
+2. **Repository link:** `https://github.com/mrchhan/DocuCraft-PDF-Editor` is already used in the README, docs and the app's About link.
 3. **Push** from the project folder:
    ```
    git init

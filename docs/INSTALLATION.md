@@ -10,7 +10,7 @@ Your data (settings, history, logs) is in `%APPDATA%\DocuCraft` and is not remov
 ## From source (Windows, macOS, Linux)
 Requires Python 3.11-3.13.
 ```bash
-git clone https://github.com/your-username/DocuCraft-PDF-Editor.git
+git clone https://github.com/mrchhan/DocuCraft-PDF-Editor.git
 cd DocuCraft-PDF-Editor
 python -m venv .venv
 .venv\Scripts\activate          # macOS/Linux: source .venv/bin/activate

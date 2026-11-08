@@ -16,4 +16,3 @@ scripts/     build_windows.py, make_branding.py (logo, icon, embedded branding),
 **Run tests:** `QT_QPA_PLATFORM=offscreen python -m pytest -q` (synthetic documents only).
 **Self-test a build:** `DocuCraft --selftest --selftest-out report.txt` runs the real engines and prints PASS/FAIL per check.
 **Screenshots and video:** `python scripts/make_portfolio_media.py <frames>` then `python scripts/compose_portfolio.py <frames>` (needs ffmpeg).
-**Before publishing:** replace the `your-username` placeholder in `app/settings.py`, README and docs with the real repository URL.
