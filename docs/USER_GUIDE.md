@@ -1,7 +1,7 @@
 # User guide
 
 ## Open and read
-**File -> Open** (Ctrl+O), drag a PDF onto the window, or pick one from Home / Recent. Password-protected files ask for the password. Use the page panel (F4) for thumbnails and bookmarks, the search box (or Ctrl+F) to find text, and the view ribbon for zoom, rotation, layout, full screen (F11), print and document info.
+**File -> Open** (Ctrl+O), drag a PDF onto the window, or pick one from Home / Recent. Password-protected files ask for the password. Use the page panel (F4) for thumbnails and bookmarks, the search box (or Ctrl+F) to find text, and the view ribbon for zoom, rotation, layout, full screen (F11), print (Ctrl+P), print preview (Ctrl+Shift+P) and document info.
 
 ## Annotate and edit
 Choose **Edit** at the top. Pick a tool (highlight, underline, strikethrough, note, text box, pen, line, arrow, rectangle, ellipse, image, signature), set colour / size / opacity, then draw on the page. Click an annotation to move, restyle or delete it. **Undo / Redo** at any time.

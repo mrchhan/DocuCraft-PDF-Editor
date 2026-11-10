@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.1.4
+- Print preview: *File → Print preview…*, the toolbar button or Ctrl+Shift+P shows the pages as they will print (edits included) before you print. Ctrl+P still prints directly.
+- Printing and preview no longer freeze or crash if the printer reports a problem; a message is shown instead.
+- New tests for printing to a PDF printer and for the preview (120 total).
+
 ## 0.1.3
 - Contact number written in international format (+923363330884) everywhere.
 - Faint Shadow emblem watermark over every screen of the application (ignores the mouse, does not affect anything underneath).

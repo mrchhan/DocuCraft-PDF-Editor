@@ -1,9 +1,9 @@
-# Verification status (v0.1.3)
+# Verification status (v0.1.4)
 
 Honest record of what has been checked, where, and what has not.
 
 ## Verified (automated, Linux, Python 3.13, headless Qt)
-- **116 tests pass**, including text replacement (font/size kept, neighbours intact, reflow): reader, editor (annotations, page ops, undo/redo incl. "back to saved state is clean", true redaction + verification, safe saving), organiser (merge/split/compress/extract), security (validation, passwords, encryption preserved), conversion (PDF->Word on text, tables, scans, columns, fonts, encrypted files), services/database, and offscreen GUI tests (viewer navigation/zoom/layouts/rotation, editing workflow through the document tab, main-window shell, tool panels producing real output files).
+- **120 tests pass**, including text replacement (font/size kept, neighbours intact, reflow): reader, editor (annotations, page ops, undo/redo incl. "back to saved state is clean", true redaction + verification, safe saving), organiser (merge/split/compress/extract), security (validation, passwords, encryption preserved), conversion (PDF->Word on text, tables, scans, columns, fonts, encrypted files), services/database, and offscreen GUI tests (viewer navigation/zoom/layouts/rotation, editing workflow through the document tab, main-window shell, tool panels producing real output files).
 - **Packaged build (PyInstaller, Linux)** builds from `docucraft.spec`, its `--selftest` passes (render, redaction, text replacement, merge, PDF->Word, database) and the packaged GUI starts.
 - **Packaged build on Windows (user-run):** the PyInstaller EXE passed its self-test (render, redact, merge, pdf_to_word, database). The `replace_text` check was added afterwards and has not been run on Windows.
 - Branding: logo integrity, tamper rejection, PDF/Word/image watermark (idempotent, all four page rotations) are covered by `tests/test_branding.py`; the visual result was reviewed on rendered pages only, not in a real PDF viewer or on Windows.
@@ -17,7 +17,7 @@ Honest record of what has been checked, where, and what has not.
 - [ ] Installer install / launch / uninstall on a **clean** machine without Python
 - [ ] PDF file association, shortcuts, per-user vs admin install
 - [ ] OCR with a bundled Tesseract (`vendor/tesseract`) and Word->PDF with LibreOffice
-- [ ] Printing on a real printer; high-DPI and multi-monitor behaviour
+- [ ] Print preview window opens and shows the pages (File → Print preview…, Ctrl+Shift+P); printing on a real printer; high-DPI and multi-monitor behaviour
 - [ ] Antivirus / SmartScreen behaviour (the installer is unsigned)
 - [ ] Performance on very large (500+ page / 100+ MB) real-world files and conversion quality on real-world documents
 

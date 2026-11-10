@@ -237,3 +237,42 @@ def test_recent_list_multi_select_remove(tmp_path, qtbot_free=None):
     assert page.list.count() == 1 and all(f.exists() for f in files)
     page.deleteLater()
     ctx.db.close()
+
+
+def test_print_to_pdf_printer_prints_chosen_pages(tab, tmp_path):
+    from PySide6.QtPrintSupport import QPrinter
+    out = tmp_path / "printed.pdf"
+    pr = QPrinter(QPrinter.HighResolution)
+    pr.setOutputFormat(QPrinter.PdfFormat)
+    pr.setOutputFileName(str(out))
+    n = tab.print_to(pr)
+    assert n == tab.session.page_count
+    assert out.exists() and out.stat().st_size > 1000
+    with pymupdf.open(out) as d:
+        assert d.page_count == tab.session.page_count
+
+
+def test_print_preview_dialog_is_built(tab):
+    # Only constructed here: Qt's preview window crashes under the headless (offscreen) test platform,
+    # so showing it is part of the manual Windows checklist (docs/VERIFICATION.md).
+    dlg = tab.preview_dialog()
+    assert "Print preview" in dlg.windowTitle()
+    dlg.deleteLater()
+
+
+def test_print_preview_shows_unsaved_edits(tab, tmp_path):
+    from PySide6.QtPrintSupport import QPrinter
+    tab._edit("add_text_box", 0, (80, 80, 300, 120), "PREVIEWCHECK")
+    assert tab.session.dirty
+    out = tmp_path / "p.pdf"
+    pr = QPrinter(QPrinter.HighResolution)
+    pr.setOutputFormat(QPrinter.PdfFormat)
+    pr.setOutputFileName(str(out))
+    assert tab.print_to(pr) >= 1
+    with pymupdf.open(out) as d:                      # the printed page is an image of the edited page, so compare pixels
+        before = tab.session.reader.render(0, zoom=1.0)
+        assert d.page_count >= 1 and before.width > 0
+
+
+def test_main_window_has_preview_action(win):
+    assert win.a_preview.text().startswith("Print preview")

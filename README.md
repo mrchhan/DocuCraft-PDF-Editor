@@ -8,12 +8,12 @@ A free, offline desktop app to **read, annotate, edit, secure and convert PDFs**
 
 ▶ **Full 63-second demo video:** [marketing/media/docucraft-demo.mp4](marketing/media/docucraft-demo.mp4)
 
-> **Status: v0.1.3 preview.** The core is tested (116 automated tests). The Windows build was built and self-tested on a real Windows 10 PC, but **has not yet been tested on a clean machine without Python** — see [Verification status](#verification-status).
+> **Status: v0.1.4 preview.** The core is tested (120 automated tests). The Windows build was built and self-tested on a real Windows 10 PC, but **has not yet been tested on a clean machine without Python** — see [Verification status](#verification-status).
 
 ## Features
 | Area | What you get |
 |---|---|
-| **Read** | Tabs, thumbnails, bookmarks, search, zoom / fit width / fit page, rotate, single / continuous / two-page layouts, full screen, print, document info, drag-and-drop, lazy rendering for large files |
+| **Read** | Tabs, thumbnails, bookmarks, search, zoom / fit width / fit page, rotate, single / continuous / two-page layouts, full screen, print and print preview, document info, drag-and-drop, lazy rendering for large files |
 | **Annotate & edit** | Highlight, underline, strikethrough, sticky notes, text boxes, freehand, lines, arrows, rectangles, ellipses, images, drawn signatures; colour / size / opacity; undo & redo |
 | **Pages** | Insert, delete, duplicate, rotate, reorder (drag), extract, replace pages |
 | **Text replacement** | Replace words with a preview. The original words are removed and the new text is placed in the same spot with the same font, size and colour where possible, and the rest of the line moves along. It is not native PDF editing (paragraphs don't re-wrap) and is labelled that way |

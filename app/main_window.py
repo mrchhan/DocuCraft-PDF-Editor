@@ -188,6 +188,7 @@ class MainWindow(QMainWindow):
         self.a_copy = self._act("Save a copy…", lambda: self._cur(lambda t: t.save_copy()))
         self.a_flat = self._act("Export flattened PDF…", lambda: self._cur(lambda t: t.export_flattened("annotations")))
         self.a_print = self._act("Print…", lambda: self._cur(lambda t: t.print_document()))
+        self.a_preview = self._act("Print preview…", lambda: self._cur(lambda t: t.print_preview()))
         self.a_info = self._act("Document information…", lambda: self._cur(lambda t: t.show_info()))
         self.a_toword = self._act("Convert this document to Word…", self.convert_current)
         self.a_close = self._act("Close tab", lambda: self.close_tab(self.tabs.currentIndex()), "Ctrl+W")
@@ -204,7 +205,7 @@ class MainWindow(QMainWindow):
         for a in (self.a_save, self.a_saveas, self.a_copy, self.a_flat):
             m.addAction(a)
         m.addSeparator()
-        for a in (self.a_print, self.a_info, self.a_toword):
+        for a in (self.a_print, self.a_preview, self.a_info, self.a_toword):
             m.addAction(a)
         m.addSeparator()
         m.addAction(self.a_close)
@@ -213,7 +214,7 @@ class MainWindow(QMainWindow):
 
     def _update_actions(self) -> None:
         has = self.current_tab() is not None
-        for a in (self.a_save, self.a_saveas, self.a_copy, self.a_flat, self.a_print, self.a_info, self.a_toword, self.a_close):
+        for a in (self.a_save, self.a_saveas, self.a_copy, self.a_flat, self.a_print, self.a_preview, self.a_info, self.a_toword, self.a_close):
             a.setEnabled(has)
 
     def _fill_recent_menu(self) -> None:

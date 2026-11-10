@@ -150,6 +150,7 @@ class DocumentTab(QWidget):
         h.addWidget(separator())
         h.addWidget(tool_button("search", "Find in document", shortcut="Ctrl+F", slot=self.open_find))
         h.addWidget(tool_button("print", "Print", shortcut="Ctrl+P", slot=self.print_document))
+        h.addWidget(tool_button("preview", "Print preview", shortcut="Ctrl+Shift+P", slot=self.print_preview))
         h.addWidget(tool_button("info", "Document information", shortcut="Ctrl+D", slot=self.show_info))
         h.addStretch(1)
         return w
@@ -263,7 +264,7 @@ class DocumentTab(QWidget):
         v = self.view
         table = [("Ctrl+Home", v.first_page), ("Ctrl+End", v.last_page), ("Ctrl+-", v.zoom_out), ("Ctrl++", v.zoom_in),
                  ("Ctrl+=", v.zoom_in), ("Ctrl+1", v.fit_width), ("Ctrl+0", v.fit_page), ("Ctrl+R", v.rotate_view),
-                 ("F11", self.fullscreenRequested.emit), ("Ctrl+F", self.open_find), ("Ctrl+P", self.print_document),
+                 ("F11", self.fullscreenRequested.emit), ("Ctrl+F", self.open_find), ("Ctrl+P", self.print_document), ("Ctrl+Shift+P", self.print_preview),
                  ("Ctrl+D", self.show_info), ("Ctrl+Z", self.undo), ("Ctrl+Y", self.redo), ("Ctrl+Shift+Z", self.redo),
                  ("F3", lambda: self._step_search(1)), ("Shift+F3", lambda: self._step_search(-1)),
                  ("F4", lambda: self.btn_side.toggle())]
@@ -621,9 +622,31 @@ class DocumentTab(QWidget):
         dlg.setOption(QPrintDialog.PrintPageRange, True)
         dlg.setMinMax(1, self.session.page_count)
         if dlg.exec():
-            self.print_to(printer)
+            self._print_safely(printer)
 
-    def print_to(self, printer) -> int:
+    def preview_dialog(self):
+        """Build (without showing) a print preview of the document as it is now, edits included."""
+        from PySide6.QtPrintSupport import QPrintPreviewDialog, QPrinter
+        printer = QPrinter(QPrinter.HighResolution)
+        dlg = QPrintPreviewDialog(printer, self)
+        dlg.setWindowTitle(f"Print preview - {self.session.name}")
+        dlg.resize(980, 760)
+        dlg.paintRequested.connect(lambda pr: self._print_safely(pr, pump=False))
+        return dlg
+
+    def print_preview(self) -> None:
+        try:
+            self.preview_dialog().exec()
+        except Exception as e:  # never let a printing problem take the app down
+            show_error(self, e, "Print preview")
+
+    def _print_safely(self, printer, pump: bool = True) -> None:
+        try:
+            self.print_to(printer, pump)
+        except Exception as e:  # a printer problem must never close the app
+            show_error(self, e, "Print")
+
+    def print_to(self, printer, pump: bool = True) -> int:
         """Render the chosen pages onto `printer`. Returns pages printed."""
         from PySide6.QtCore import QRect
         n = self.session.page_count
@@ -647,7 +670,8 @@ class DocumentTab(QWidget):
                                         target.y() + (target.height() - scaled.height()) // 2,
                                         scaled.width(), scaled.height()), img)
                 done += 1
-                QApplication.processEvents()
+                if pump:                      # not while the preview is painting: re-entering Qt there can crash
+                    QApplication.processEvents()
         finally:
             painter.end()
             QApplication.restoreOverrideCursor()
