@@ -8,7 +8,7 @@ A free, offline desktop app to **read, annotate, edit, secure and convert PDFs**
 
 ▶ **Full 63-second demo video:** [marketing/media/docucraft-demo.mp4](marketing/media/docucraft-demo.mp4)
 
-> **Status: v0.1.4 preview.** The core is tested (120 automated tests). The Windows build was built and self-tested on a real Windows 10 PC, but **has not yet been tested on a clean machine without Python** — see [Verification status](#verification-status).
+> **Status: v0.1.5 preview.** The core is tested (120 automated tests). The Windows build was built and self-tested on a real Windows 10 PC, but **has not yet been tested on a clean machine without Python** — see [Verification status](#verification-status).
 
 ## Features
 | Area | What you get |

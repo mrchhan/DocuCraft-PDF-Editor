@@ -1,4 +1,4 @@
-# Verification status (v0.1.4)
+# Verification status (v0.1.5)
 
 Honest record of what has been checked, where, and what has not.
 
@@ -17,7 +17,7 @@ Honest record of what has been checked, where, and what has not.
 - [ ] Installer install / launch / uninstall on a **clean** machine without Python
 - [ ] PDF file association, shortcuts, per-user vs admin install
 - [ ] OCR with a bundled Tesseract (`vendor/tesseract`) and Word->PDF with LibreOffice
-- [ ] Print preview window opens and shows the pages (File → Print preview…, Ctrl+Shift+P); printing on a real printer; high-DPI and multi-monitor behaviour
+- [ ] Print preview window opens, shows the pages, zooms and hands over to Print (File → Print preview…, Ctrl+Shift+P; **0.1.4's Qt preview crashed on the author's PC, 0.1.5 uses a custom one**); printing on a real printer; high-DPI and multi-monitor behaviour
 - [ ] Antivirus / SmartScreen behaviour (the installer is unsigned)
 - [ ] Performance on very large (500+ page / 100+ MB) real-world files and conversion quality on real-world documents
 

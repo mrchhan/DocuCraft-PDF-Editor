@@ -1,7 +1,10 @@
 # Changelog
 
+## 0.1.5
+- **Fix:** opening *Print preview* closed the whole program on some Windows PCs (a crash inside Qt's own preview window). Print preview is now drawn by DocuCraft itself: it shows the pages as they will print, with zoom in/out and a Print button, and cannot take the app down.
+
 ## 0.1.4
-- Print preview: *File → Print preview…*, the toolbar button or Ctrl+Shift+P shows the pages as they will print (edits included) before you print. Ctrl+P still prints directly.
+- Print preview added (File → Print preview…, toolbar eye button or Ctrl+Shift+P). *Known problem, fixed in 0.1.5: it could close the program on some PCs.* Ctrl+P still prints directly.
 - Printing and preview no longer freeze or crash if the printer reports a problem; a message is shown instead.
 - New tests for printing to a PDF printer and for the preview (120 total).
 

@@ -625,14 +625,9 @@ class DocumentTab(QWidget):
             self._print_safely(printer)
 
     def preview_dialog(self):
-        """Build (without showing) a print preview of the document as it is now, edits included."""
-        from PySide6.QtPrintSupport import QPrintPreviewDialog, QPrinter
-        printer = QPrinter(QPrinter.HighResolution)
-        dlg = QPrintPreviewDialog(printer, self)
-        dlg.setWindowTitle(f"Print preview - {self.session.name}")
-        dlg.resize(980, 760)
-        dlg.paintRequested.connect(lambda pr: self._print_safely(pr, pump=False))
-        return dlg
+        """Build (without showing) the print preview of the document as it is now, edits included."""
+        from ui.dialogs.print_preview import PrintPreviewDialog
+        return PrintPreviewDialog(self, self.session, self.print_document)
 
     def print_preview(self) -> None:
         try:
@@ -640,13 +635,13 @@ class DocumentTab(QWidget):
         except Exception as e:  # never let a printing problem take the app down
             show_error(self, e, "Print preview")
 
-    def _print_safely(self, printer, pump: bool = True) -> None:
+    def _print_safely(self, printer) -> None:
         try:
-            self.print_to(printer, pump)
+            self.print_to(printer)
         except Exception as e:  # a printer problem must never close the app
             show_error(self, e, "Print")
 
-    def print_to(self, printer, pump: bool = True) -> int:
+    def print_to(self, printer) -> int:
         """Render the chosen pages onto `printer`. Returns pages printed."""
         from PySide6.QtCore import QRect
         n = self.session.page_count
@@ -670,8 +665,7 @@ class DocumentTab(QWidget):
                                         target.y() + (target.height() - scaled.height()) // 2,
                                         scaled.width(), scaled.height()), img)
                 done += 1
-                if pump:                      # not while the preview is painting: re-entering Qt there can crash
-                    QApplication.processEvents()
+                QApplication.processEvents()
         finally:
             painter.end()
             QApplication.restoreOverrideCursor()

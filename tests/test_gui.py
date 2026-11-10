@@ -252,12 +252,20 @@ def test_print_to_pdf_printer_prints_chosen_pages(tab, tmp_path):
         assert d.page_count == tab.session.page_count
 
 
-def test_print_preview_dialog_is_built(tab):
-    # Only constructed here: Qt's preview window crashes under the headless (offscreen) test platform,
-    # so showing it is part of the manual Windows checklist (docs/VERIFICATION.md).
+def test_print_preview_dialog_renders_pages(tab, qapp):
     dlg = tab.preview_dialog()
+    dlg.show()
+    qapp.processEvents()
     assert "Print preview" in dlg.windowTitle()
-    dlg.deleteLater()
+    n = tab.session.page_count
+    assert len(dlg._labels) == n
+    assert dlg._labels[0].pixmap() is not None and not dlg._labels[0].pixmap().isNull()
+    z = dlg.zoom
+    dlg.btn_in.click()
+    assert dlg.zoom > z and len(dlg._labels) == n
+    dlg.btn_out.click()
+    dlg.close()
+    qapp.processEvents()
 
 
 def test_print_preview_shows_unsaved_edits(tab, tmp_path):

@@ -5,7 +5,7 @@ from PySide6.QtCore import QObject, Signal
 
 from database.database import Database
 
-APP_VERSION = "0.1.4"
+APP_VERSION = "0.1.5"
 APP_NAME = "DocuCraft"
 TAGLINE = "Your Documents. Your Control."
 DEVELOPER = "Hassan Malik (Shadow Creative Studio)"
